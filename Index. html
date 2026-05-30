@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="te">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ట్రూ మెసెంజర్ షార్ట్ న్యూస్</title>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
+        body, html { width: 100%; height: 100%; overflow: hidden; background-color: #000; }
+        .news-container { width: 100%; height: 100%; scroll-snap-type: y mandatory; overflow-y: scroll; scroll-behavior: smooth; -webkit-overflow-scrolling: touch; }
+        .news-card { width: 100%; height: 100vh; scroll-snap-align: start; display: flex; flex-direction: column; background-color: #fff; position: relative; }
+        .news-image { width: 100%; height: 42%; object-fit: cover; background-color: #ddd; }
+        .news-content { padding: 20px; flex: 1; display: flex; flex-direction: column; }
+        .news-title { font-size: 1.3rem; font-weight: bold; color: #111; margin-bottom: 12px; line-height: 1.4; }
+        .news-desc { font-size: 1rem; color: #444; line-height: 1.6; text-align: justify; }
+        .action-bar { padding: 15px 20px; background-color: #f8f9fa; border-top: 1px solid #eee; display: flex; justify-content: space-between; }
+        .btn { padding: 10px 20px; border: none; border-radius: 25px; font-size: 0.9rem; cursor: pointer; font-weight: bold; }
+        .btn-audio { background-color: #007bff; color: white; }
+        .btn-share { background-color: #25d366; color: white; }
+        .admin-trigger { position: absolute; top: 10px; right: 10px; width: 30px; height: 30px; background: rgba(0,0,0,0.1); border-radius: 50%; z-index: 10; }
+        .admin-panel { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: white; z-index: 100; padding: 20px; overflow-y: auto; }
+        .form-group { margin-bottom: 15px; }
+        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; }
+        .form-group input, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; }
+        .btn-submit { background: #28a745; color: white; padding: 10px; width: 100%; border: none; border-radius: 5px; font-size: 1rem; }
+    </style>
+</head>
+<body>
+    <div class="admin-trigger" onclick="openAdmin()"></div>
+    <div class="news-container" id="newsSpace"></div>
+    <div class="admin-panel" id="adminPanel">
+        <h2>న్యూస్ అప్‌డేట్ ప్యానెల్</h2><br>
+        <div class="form-group"><label>హెడ్‌లైన్:</label><input type="text" id="newsTitle"></div>
+        <div class="form-group"><label>వివరాలు:</label><textarea id="newsDesc" rows="4"></textarea></div>
+        <div class="form-group"><label>ఇమేజ్ లింక్:</label><input type="text" id="newsImg" placeholder="https://picsum.photos/800/600"></div>
+        <button class="btn-submit" onclick="saveNews()">📢 పబ్లిష్ చేయి</button>
+        <button class="btn-submit" style="background:#dc3545; margin-top:10px;" onclick="closeAdmin()">మూసివేయి</button>
+    </div>
+    <script>
+        let defaultNews = [{title: "ట్రూ మెసెంజర్ యాప్ రెడీ!", desc: "మీరు విజయవంతంగా యాప్‌ను ఇన్‌స్టాల్ చేశారు. పైన సీక్రెట్ బటన్ నొక్కి కొత్త వార్తలు యాడ్ చేయండి.", img: "https://picsum.photos/800/600?random=1"}];
+        function loadNews() {
+            let newsList = JSON.parse(localStorage.getItem('tm_news')) || defaultNews;
+            let html = '';
+            newsList.forEach((n, i) => {
+                html += `<div class="news-card"><img src="${n.img}" class="news-image"><div class="news-content"><h2 class="news-title" id="t${i}">${n.title}</h2><p class="news-desc" id="d${i}">${n.desc}</p></div><div class="action-bar"><button class="btn btn-audio" onclick="speakNews('t${i}','d${i}')">🔊 వినండి</button><button class="btn btn-share" onclick="shareNews('t${i}')">🔗 షేర్</button></div></div>`;
+            });
+            document.getElementById('newsSpace').innerHTML = html;
+        }
+        function speakNews(t, d) { window.speechSynthesis.cancel(); let s = new SpeechSynthesisUtterance(document.getElementById(t).innerText + " " + document.getElementById(d).innerText); s.lang = 'te-IN'; window.speechSynthesis.speak(s); }
+        function shareNews(t) { if(navigator.share) navigator.share({title:'News', text:document.getElementById(t).innerText, url:window.location.href}); }
+        function openAdmin() { if(prompt("Password:")==="1234") document.getElementById('adminPanel').style.display='block'; }
+        function closeAdmin() { document.getElementById('adminPanel').style.display='none'; }
+        function saveNews() {
+            let n = {title: document.getElementById('newsTitle').value, desc: document.getElementById('newsDesc').value, img: document.getElementById('newsImg').value || "https://picsum.photos/800/600"};
+            let list = JSON.parse(localStorage.getItem('tm_news')) || defaultNews;
+            list.unshift(n);
+            localStorage.setItem('tm_news', JSON.stringify(list));
+            alert("Updated!"); location.reload();
+        }
+        window.onload = loadNews;
+    </script>
+</body>
+</html>
