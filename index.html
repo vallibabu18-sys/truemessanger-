@@ -12,73 +12,68 @@
             justify-content: center; 
             align-items: center; 
             height: 100vh; 
-            font-family: 'Segoe UI', Arial, sans-serif;
+            font-family: sans-serif;
         }
 
-        /* మొత్తం లోగో సెటప్ ఒకే లైన్ లో ఆనుకొని రావడానికి */
         .logo-container {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 12px;
+            gap: 15px;
         }
 
-        /* 1. ఎడమ వైపు థిక్ గోల్డెన్ పక్షి */
-        .left-bird {
-            font-size: 65px;
-            color: #FFD700;
-            text-shadow: 0px 0px 15px rgba(255, 215, 0, 0.7);
-            display: inline-block;
-            line-height: 1;
+        /* ఎడమ వైపు గోల్డెన్ పక్షి */
+        .golden-bird {
+            font-size: 70px;
+            color: #856404; /* డార్క్ గోల్డ్ */
+            background: linear-gradient(145deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: flex;
+            align-items: center;
+            filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
         }
 
-        /* 2. అక్షరాలు + అండర్ లైన్ బాక్స్ */
-        .text-box {
-            display: inline-flex;
+        /* అక్షరాలు మరియు లైన్ బాక్స్ */
+        .text-group {
+            display: flex;
             flex-direction: column;
             align-items: flex-start;
         }
 
-        /* థిక్ గోల్డెన్ తెలుగు లెటర్స్ */
-        .gold-letters {
-            font-size: 52px;
-            font-weight: 900; /* చాలా థిక్ అక్షరాలు */
-            color: #D4AF37;
-            background: linear-gradient(to bottom, #FFF7C2 0%, #FFD700 50%, #B8860B 100%);
+        /* థిక్ డార్క్ గోల్డ్ అక్షరాలు */
+        .gold-text {
+            font-size: 58px;
+            font-weight: 900;
+            margin: 0;
+            padding: 0;
+            line-height: 1.0; /* అక్షరాలకు లైన్ ఆనుకొని రావడానికి */
+            background: linear-gradient(to bottom, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            line-height: 1.0; /* అక్షరాలకి లైన్ కి అస్సలు గ్యాప్ లేకుండా ఆనుకొని ఉండటానికి */
-            padding: 0;
-            margin: 0;
+            letter-spacing: -1px;
         }
 
-        /* 3. అక్షరాలకు ఆనుకొని పక్కా ఖచ్చితత్వంతో వచ్చే థిక్ రెడ్ ట్రాన్స్‌పరెంట్ అండర్ లైన్ */
-        .red-line {
-            height: 8px; /* థిక్ లైన్ */
+        /* థిక్ రెడ్ ట్రాన్స్‌పరెంట్ అండర్ లైన్ - అక్షరాలకు ఆనుకొని */
+        .thick-red-line {
+            height: 8px;
             width: 100%;
-            margin-top: 1px; /* కచ్చితంగా అక్షరాల కిందే అంటుకొని వస్తుంది */
-            background-color: rgba(255, 0, 0, 0.45); /* థిక్ రెడ్ + ట్రాన్స్‌పరెంట్ */
-            border-radius: 2px;
-            box-shadow: 0px 1px 3px rgba(255, 0, 0, 0.15);
+            margin-top: 1px; /* కచ్చితమైన గ్యాప్ */
+            background-color: rgba(200, 0, 0, 0.6); /* థిక్ ట్రాన్స్‌పరెంట్ రెడ్ */
+            border-radius: 1px;
         }
     </style>
 </head>
 <body>
 
     <div class="logo-container">
-        <!-- ఎడమ వైపు గోల్డ్ పక్షి -->
-        <div class="left-bird">🕊️</div>
+        <div class="golden-bird">🕊️</div>
 
-        <!-- అక్షరాలకు ఆనుకొని ఉండే అండర్ లైన్ సెటప్ -->
-        <div class="text-box">
-            <h1 class="gold-letters">ట్రూ మెసెంజర్</h1>
-            <div class="red-line"></div>
+        <div class="text-group">
+            <div class="gold-text">ట్రూ మెసెంజర్</div>
+            <div class="thick-red-line"></div>
         </div>
     </div>
 
-    <script>
-        // బ్రౌజర్ పాత మెమరీని క్లియర్ చేయడానికి చిన్న ట్రిక్
-        console.log("Version: " + Math.random());
-    </script>
 </body>
 </html>
