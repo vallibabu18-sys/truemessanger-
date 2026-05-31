@@ -5,30 +5,30 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ట్రూ మెసెంజర్</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
-            background-color: #ffffff; 
-            display: flex; 
-            justify-content: center; 
-            align-items: center; 
-            height: 100vh; 
-            margin: 0;
+            background: #ffffff; display: flex; justify-content: center; 
+            align-items: center; height: 100vh; margin: 0; font-family: sans-serif;
         }
-        .container {
-            text-align: center;
-            width: 90%;
-            max-width: 350px;
+        .container { text-align: center; width: 90%; }
+        
+        /* గోల్డెన్ పక్షి లాంటి ఎఫెక్ట్ కోసం చిన్న ఐకాన్ */
+        .bird-icon {
+            font-size: 50px; color: #FFD700; margin-bottom: 10px;
+            text-shadow: 0 0 10px rgba(255,215,0,0.5);
         }
-        .logo {
-            width: 100%;
-            height: auto;
+
+        /* మల్టీ కలర్ తెలుగు అక్షరాలు */
+        .logo-text {
+            font-size: 45px; font-weight: bold;
+            background: linear-gradient(45deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #8B00FF);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
             display: block;
         }
-        .rainbow-line {
-            height: 5px;
-            width: 100%;
-            margin-top: 20px;
-            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
+
+        .line {
+            height: 5px; width: 100%; margin-top: 20px;
+            background: linear-gradient(90deg, red, yellow, green, blue);
             border-radius: 10px;
         }
     </style>
@@ -36,8 +36,9 @@
 <body>
 
     <div class="container">
-        <img src="1772973315894%281%29.png" class="logo" alt="True Messenger">
-        <div class="rainbow-line"></div>
+        <div class="bird-icon">🕊️</div>
+        <span class="logo-text">ట్రూ మెసెంజర్</span>
+        <div class="line"></div>
     </div>
 
 </body>
