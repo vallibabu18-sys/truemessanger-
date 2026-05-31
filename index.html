@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="te">
 <head>
     <meta charset="UTF-8">
@@ -16,9 +16,9 @@
             transition: opacity 0.5s ease;
         }
 
-        .logo-box { position: relative; display: flex; flex-direction: column; align-items: center; width: 85%; max-width: 320px; }
+        .logo-box { position: relative; display: flex; flex-direction: column; align-items: center; width: 90%; max-width: 340px; }
 
-        /* మీరు ఇచ్చిన అసలైన మల్టీ కలర్ లోగో ఇమేజ్ */
+        /* మీరు ఇచ్చిన అసలైన మల్టీ కలర్ తెలుగు లోగో (1772973315894(1).png) */
         .main-logo {
             width: 100%; height: auto; opacity: 0; transform: scale(0.85);
             animation: logoFadeIn 1.2s forwards 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
@@ -26,9 +26,9 @@
 
         /* లోగో కింద వచ్చే మెరుపు రంగుల అండర్ లైన్ */
         .underline {
-            width: 0; height: 4px; margin-top: 15px;
+            width: 0; height: 5px; margin-top: 15px;
             background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
-            border-radius: 2px;
+            border-radius: 3px;
             animation: lineStretch 1s forwards 1.8s ease-in-out;
         }
 
@@ -58,8 +58,8 @@
     <!-- 1. స్ప్లాష్ స్క్రీన్ -->
     <div id="splash-screen">
         <div class="logo-box">
-            <!-- మీ ఒరిజినల్ ఇమేజ్ లింక్ ఇక్కడ పక్కాగా ఇచ్చాను బాస్ -->
-            <img src="https://raw.githubusercontent.com/vallibabu18-sys/truemessanger-/main/1772973315894(1).png" class="main-logo" alt="True Messenger Logo">
+            <!-- మీ ఒరిజినల్ ఇమేజ్ డైరెక్ట్ గిట్‌హబ్ లింక్ పక్కాగా ఇచ్చాను బాస్ -->
+            <img src="1772973315894(1).png" class="main-logo" alt="True Messenger Logo">
             <!-- రంగుల లైన్ -->
             <div class="underline"></div>
         </div>
@@ -72,11 +72,11 @@
     </div>
 
     <div class="news-wrap">
-        <h1 class="news-head" id="h-view">ట్రూ%20మెసెంజర్%20యాప్%20సిద్ధం!</h1>
+        <h1 class="news-head" id="h-view">ట్రూ మెసెంజర్ యాప్ సిద్ధం!</h1>
         <p class="news-text" id="d-view">మీరు విజయవంతంగా యాప్ ఇన్స్టాల్ చేశారు. పైన సీక్రెట్ బటన్ నొక్కి వార్తలు అప్డేట్ చేయండి.</p>
     </div>
 
-    <!-- అడ్మిన్ పాప్ అప్ -->
+    <!-- അഡ്മിൻ പാപ് അപ് -->
     <div class="overlay" id="bg-overlay"></div>
     <div id="admin-panel">
         <h3 style="text-align:center; margin-bottom:15px;">వార్తలను అప్డేట్ చేయండి</h3>
@@ -147,4 +147,6 @@
         }
     </script>
 </body>
-</html>
+</html>     
+
+      
