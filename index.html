@@ -5,135 +5,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>ట్రూ మెసెంజర్</title>
     <style>
-        * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
-        body { background-color: #ffffff; overflow-x: hidden; }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { background-color: #ffffff; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
 
-        /* స్ప్లాష్ స్క్రీన్ */
-        #splash-screen {
-            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
-            background-color: #ffffff; display: flex; flex-direction: column;
-            justify-content: center; align-items: center; z-index: 10000;
+        /* లోగో బాక్స్ */
+        .logo-container {
+            text-align: center;
+            width: 90%;
+            max-width: 320px;
         }
 
-        .logo-box { position: relative; display: flex; flex-direction: column; align-items: center; width: 90%; max-width: 350px; }
-
-        /* మీ ఒరిజినల్ లోగో */
+        /* మీ ఒరిజినల్ లోగో ఇమేజ్ */
         .main-logo {
-            width: 100%; height: auto; opacity: 0;
-            animation: logoFadeIn 1.5s forwards 0.5s ease-out;
+            width: 100%;
+            height: auto;
+            display: block;
         }
 
-        /* రంగుల అండర్ లైన్ */
-        .underline {
-            width: 0; height: 5px; margin-top: 15px;
-            background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
-            border-radius: 3px;
-            animation: lineStretch 1s forwards 2s ease-in-out;
+        /* లోగో కింద చిన్న మెరుపు లైన్ */
+        .line {
+            height: 4px;
+            width: 100%;
+            margin-top: 15px;
+            background: linear-gradient(90deg, red, yellow, green, blue);
+            border-radius: 2px;
         }
-
-        @keyframes logoFadeIn { to { opacity: 1; } }
-        @keyframes lineStretch { to { width: 100%; } }
-
-        /* యాప్ కంటెంట్ */
-        .media-box { width: 100%; height: 260px; background: #000; position: relative; }
-        .media-box img, .media-box video { width: 100%; height: 100%; object-fit: cover; }
-        .secret-trigger { position: absolute; top: 0; right: 0; width: 60px; height: 60px; z-index: 100; }
-        
-        .news-wrap { padding: 25px; }
-        .news-head { font-size: 1.6rem; font-weight: bold; margin-bottom: 15px; color: #1a1a1a; }
-        .news-text { font-size: 1.15rem; line-height: 1.8; color: #444; }
-
-        /* అడ్మిన్ ప్యానెల్ */
-        #admin-panel { display: none; position: fixed; top: 50%; left: 50%; transform: translate(-50%, -50%); width: 90%; max-width: 450px; background: #fff; padding: 25px; border-radius: 15px; box-shadow: 0 0 30px rgba(0,0,0,0.3); z-index: 10001; }
-        .overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0,0,0,0.6); z-index: 10000; }
-        input, textarea { width: 100%; margin-bottom: 12px; padding: 12px; border: 1px solid #ddd; border-radius: 8px; }
-        .btn-pub { background: #27ae60; color: #fff; border: none; padding: 14px; width: 100%; font-weight: bold; border-radius: 8px; cursor: pointer; }
     </style>
 </head>
 <body>
 
-    <div id="splash-screen">
-        <div class="logo-box">
-            <img src="1772973315894(1).png" class="main-logo" alt="True Messenger">
-            <div class="underline"></div>
-        </div>
+    <div class="logo-container">
+        <img src="1772973315894(1).png" class="main-logo" alt="True Messenger">
+        <div class="line"></div>
     </div>
 
-    <div class="media-box" id="media-container">
-        <div class="secret-trigger" onclick="adminLogin()"></div>
-        <img id="main-display-img" src="https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800">
-    </div>
-
-    <div class="news-wrap">
-        <h1 class="news-head" id="h-view">ట్రూ మెసెంజర్ యాప్ సిద్ధం!</h1>
-        <p class="news-text" id="d-view">మీరు విజయవంతంగా యాప్ ఇన్స్టాల్ చేశారు. పైన సీక్రెట్ బటన్ నొక్కి వార్తలు అప్డేట్ చేయండి.</p>
-    </div>
-
-    <div class="overlay" id="bg-overlay"></div>
-    <div id="admin-panel">
-        <h3 style="text-align:center; margin-bottom:15px;">వార్తలను అప్డేట్ చేయండి</h3>
-        <input type="text" id="h-in" placeholder="వార్త హెడ్ లైన్">
-        <textarea id="d-in" rows="5" placeholder="వార్త పూర్తి వివరాలు"></textarea>
-        <input type="text" id="u-in" placeholder="ఫోటో లేదా వీడియో లింక్ (URL)">
-        <button class="btn-pub" onclick="publish()">📢 పబ్లిష్ చేయి</button>
-        <button onclick="closePanel()" style="width:100%; margin-top:10px; border:none; background:none; color:red; cursor:pointer;">రద్దు చేయి</button>
-    </div>
-
-    <script>
-        setTimeout(() => {
-            const splash = document.getElementById('splash-screen');
-            splash.style.transition = 'opacity 0.8s ease';
-            splash.style.opacity = '0';
-            setTimeout(() => { splash.style.display = 'none'; }, 800);
-        }, 4000);
-
-        function adminLogin() {
-            if(prompt("పాస్ వర్డ్ ఇవ్వండి:") === "1234") {
-                document.getElementById('admin-panel').style.display = 'block';
-                document.getElementById('bg-overlay').style.display = 'block';
-            }
-        }
-
-        function closePanel() {
-            document.getElementById('admin-panel').style.display = 'none';
-            document.getElementById('bg-overlay').style.display = 'none';
-        }
-
-        function publish() {
-            const h = document.getElementById('h-in').value;
-            const d = document.getElementById('d-in').value;
-            const u = document.getElementById('u-in').value;
-            if(!h || !d) { alert("వివరాలు పూర్తిగా నింపండి!"); return; }
-            const newsObj = { h, d, u };
-            localStorage.setItem('tm_news_data', JSON.stringify(newsObj));
-            render(newsObj);
-            closePanel();
-        }
-
-        function render(data) {
-            document.getElementById('h-view').innerText = data.h;
-            document.getElementById('d-view').innerText = data.d;
-            const container = document.getElementById('media-container');
-            const trigger = container.querySelector('.secret-trigger');
-            container.innerHTML = ''; 
-            container.appendChild(trigger);
-            if(data.u && (data.u.includes('.mp4') || data.u.includes('video'))) {
-                const vid = document.createElement('video');
-                vid.src = data.u; vid.controls = true; vid.autoplay = true; vid.muted = true;
-                container.appendChild(vid);
-            } else {
-                const img = document.createElement('img');
-                img.src = data.u || "https://images.unsplash.com/photo-1505118380757-91f5f5632de0?w=800";
-                container.appendChild(img);
-            }
-        }
-
-        window.onload = () => {
-            const saved = localStorage.getItem('tm_news_data');
-            if(saved) render(JSON.parse(saved));
-        }
-    </script>
 </body>
 </html>
-
-        
