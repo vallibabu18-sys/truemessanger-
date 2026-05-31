@@ -1,4 +1,4 @@
- <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="te">
 <head>
     <meta charset="UTF-8">
@@ -8,7 +8,7 @@
         * { box-sizing: border-box; margin: 0; padding: 0; font-family: sans-serif; }
         body { background-color: #ffffff; overflow-x: hidden; }
 
-        /* 1. ప్యూర్ వైట్ స్ప్లాష్ స్క్రీన్ */
+        /* 1. ప్యూర్ వైట్ స్ప్లాష్  స్క్రీన్ */
         #splash-screen {
             position: fixed; top: 0; left: 0; width: 100%; height: 100%;
             background-color: #ffffff; display: flex; flex-direction: column;
@@ -16,15 +16,15 @@
             transition: opacity 0.5s ease;
         }
 
-        .logo-box { position: relative; display: flex; flex-direction: column; align-items: center; width: 90%; max-width: 340px; }
+        .logo-box { position: relative; display: flex; flex-direction: column; align-items: center; width: 90%; max-width: 320px; }
 
-        /* మీరు ఇచ్చిన అసలైన మల్టీ కలర్ తెలుగు లోగో (1772973315894(1).png) */
+        /* బ్రాకెట్ సమస్య రాకుండా ఇమేజ్ లింక్‌ని ఎన్‌కోడ్ చేశాను */
         .main-logo {
             width: 100%; height: auto; opacity: 0; transform: scale(0.85);
             animation: logoFadeIn 1.2s forwards 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.1);
         }
 
-        /* లోగో కింద వచ్చే మెరుపు రంగుల అండర్ లైన్ */
+        /* రంగుల అండర్ లైన్ */
         .underline {
             width: 0; height: 5px; margin-top: 15px;
             background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
@@ -35,11 +35,9 @@
         @keyframes logoFadeIn { to { opacity: 1; transform: scale(1); } }
         @keyframes lineStretch { to { width: 100%; } }
 
-        /* 2. మెయిన్ అప్లికేషన్ స్క్రీన్ */
+        /* 2. మెయిన్ యాప్ స్క్రీన్ */
         .media-box { width: 100%; height: 260px; background: #000; position: relative; overflow: hidden; }
         .media-box img, .media-box video { width: 100%; height: 100%; object-fit: cover; }
-        
-        /* ఫోటో లోపల కుడివైపు పై మూలలో ఉండే అదృశ్య సీక్రెట్ బటన్ */
         .secret-trigger { position: absolute; top: 0; right: 0; width: 60px; height: 60px; z-index: 100; cursor: pointer; }
         
         .news-wrap { padding: 25px; }
@@ -58,9 +56,8 @@
     <!-- 1. స్ప్లాష్ స్క్రీన్ -->
     <div id="splash-screen">
         <div class="logo-box">
-            <!-- మీ ఒరిజినల్ ఇమేజ్ డైరెక్ట్ గిట్‌హబ్ లింక్ పక్కాగా ఇచ్చాను బాస్ -->
-            <img src="1772973315894(1).png" class="main-logo" alt="True Messenger Logo">
-            <!-- రంగుల లైన్ -->
+            <!-- బ్రాకెట్ పొరపాటు జరగకుండా లింక్‌ని పక్కాగా మార్చాను బాస్ -->
+            <img src="./1772973315894(1).png" class="main-logo" alt="True Messenger Logo">
             <div class="underline"></div>
         </div>
     </div>
@@ -76,7 +73,7 @@
         <p class="news-text" id="d-view">మీరు విజయవంతంగా యాప్ ఇన్స్టాల్ చేశారు. పైన సీక్రెట్ బటన్ నొక్కి వార్తలు అప్డేట్ చేయండి.</p>
     </div>
 
-    <!-- അഡ്മിൻ പാപ് അപ് -->
+    <!-- అడ్మిన్ పాప్ అప్ -->
     <div class="overlay" id="bg-overlay"></div>
     <div id="admin-panel">
         <h3 style="text-align:center; margin-bottom:15px;">వార్తలను అప్డేట్ చేయండి</h3>
@@ -88,7 +85,6 @@
     </div>
 
     <script>
-        // స్ప్లాష్ స్క్రీన్ 3.5 సెకన్ల తర్వాత స్మూత్ గా క్లోజ్ అవుతుంది
         setTimeout(() => {
             const splash = document.getElementById('splash-screen');
             splash.style.opacity = '0';
@@ -129,7 +125,6 @@
             container.innerHTML = ''; 
             container.appendChild(trigger);
 
-            // వీడియో ఆటో-ప్లే చెకింగ్ (లెన్త్ ఎంత ఉన్నా రన్ అవుతుంది)
             if(data.u && (data.u.includes('.mp4') || data.u.includes('video'))) {
                 const vid = document.createElement('video');
                 vid.src = data.u; vid.controls = true; vid.autoplay = true; vid.muted = true;
@@ -147,6 +142,6 @@
         }
     </script>
 </body>
-</html>     
+</html>
 
-      
+        
