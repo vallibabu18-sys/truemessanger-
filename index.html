@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ట్రూ మెసెంజర్</title>
+    <title>ట్రూ మెసెంజర్ - పక్కా లోగో</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
@@ -12,66 +12,67 @@
             justify-content: center; 
             align-items: center; 
             height: 100vh; 
-            font-family: sans-serif;
+            font-family: 'Arial Black', Gadget, sans-serif;
         }
 
-        .logo-container {
+        .logo-wrap {
             display: flex;
             align-items: center;
             justify-content: center;
-            gap: 15px;
+            gap: 10px;
         }
 
-        /* ఎడమ వైపు గోల్డెన్ పక్షి */
-        .golden-bird {
-            font-size: 70px;
-            color: #856404; /* డార్క్ గోల్డ్ */
-            background: linear-gradient(145deg, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+        /* మీరు కోరుకున్న డార్క్ మెటాలిక్ గోల్డ్ పక్షి */
+        .bird {
+            font-size: 75px;
+            /* నానో బనానా లెవల్ గోల్డ్ షేడ్స్ */
+            background: linear-gradient(135deg, #8A6E2F 0%, #C5A059 25%, #FFD700 50%, #C5A059 75%, #8A6E2F 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             display: flex;
             align-items: center;
-            filter: drop-shadow(1px 1px 1px rgba(0,0,0,0.2));
+            filter: drop-shadow(2px 2px 2px rgba(0,0,0,0.15));
         }
 
-        /* అక్షరాలు మరియు లైన్ బాక్స్ */
-        .text-group {
+        .text-container {
             display: flex;
             flex-direction: column;
             align-items: flex-start;
+            justify-content: center;
         }
 
-        /* థిక్ డార్క్ గోల్డ్ అక్షరాలు */
-        .gold-text {
-            font-size: 58px;
+        /* థిక్ డార్క్ గోల్డ్ తెలుగు అక్షరాలు */
+        .gold-letters {
+            font-size: 60px;
             font-weight: 900;
             margin: 0;
             padding: 0;
-            line-height: 1.0; /* అక్షరాలకు లైన్ ఆనుకొని రావడానికి */
-            background: linear-gradient(to bottom, #bf953f, #fcf6ba, #b38728, #fbf5b7, #aa771c);
+            line-height: 0.85; /* అక్షరాలకు అండర్ లైన్ పక్కాగా ఆనుకొని రావడానికి */
+            background: linear-gradient(to bottom, #BF953F, #FCF6BA, #B38728, #FBF5B7, #AA771C);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
+            letter-spacing: -2px;
+            filter: drop-shadow(1px 1px 0px rgba(0,0,0,0.1));
         }
 
-        /* థిక్ రెడ్ ట్రాన్స్‌పరెంట్ అండర్ లైన్ - అక్షరాలకు ఆనుకొని */
-        .thick-red-line {
-            height: 8px;
+        /* థిక్ రెడ్ ట్రాన్స్‌పరెంట్ అండర్ లైన్ - పక్కా ఖచ్చితత్వంతో */
+        .thick-underline {
+            height: 10px; /* ఇంకా థిక్ గా చేశాను */
             width: 100%;
-            margin-top: 1px; /* కచ్చితమైన గ్యాప్ */
-            background-color: rgba(200, 0, 0, 0.6); /* థిక్ ట్రాన్స్‌పరెంట్ రెడ్ */
+            margin-top: 0px; /* అస్సలు గ్యాప్ లేదు */
+            background-color: rgba(220, 20, 60, 0.55); /* థిక్ ట్రాన్స్‌పరెంట్ రెడ్ */
             border-radius: 1px;
         }
     </style>
 </head>
 <body>
 
-    <div class="logo-container">
-        <div class="golden-bird">🕊️</div>
+    <div class="logo-wrap">
+        <div class="bird">🕊️</div>
 
-        <div class="text-group">
-            <div class="gold-text">ట్రూ మెసెంజర్</div>
-            <div class="thick-red-line"></div>
+        <div class="text-container">
+            <div class="gold-letters">ట్రూ మెసెంజర్</div>
+            <div class="thick-underline"></div>
         </div>
     </div>
 
