@@ -3,40 +3,43 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ట్రూ మెసెంజర్</title>
+    <title>ట్రూ మెసెంజర్ లోగో టెస్ట్</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { background-color: #ffffff; display: flex; justify-content: center; align-items: center; height: 100vh; overflow: hidden; }
-
-        /* లోగో బాక్స్ */
-        .logo-container {
+        body { 
+            background-color: #ffffff; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            margin: 0;
+        }
+        .container {
             text-align: center;
             width: 90%;
-            max-width: 320px;
+            max-width: 350px;
         }
-
-        /* మీ ఒరిజినల్ లోగో ఇమేజ్ */
-        .main-logo {
+        .logo {
             width: 100%;
             height: auto;
-            display: block;
+            /* ఇమేజ్ లోడ్ అవ్వకపోతే బోర్డర్ కనిపించడానికి */
+            min-height: 100px;
         }
-
-        /* లోగో కింద చిన్న మెరుపు లైన్ */
-        .line {
-            height: 4px;
+        .loading-line {
+            height: 5px;
             width: 100%;
-            margin-top: 15px;
-            background: linear-gradient(90deg, red, yellow, green, blue);
-            border-radius: 2px;
+            margin-top: 20px;
+            background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+            border-radius: 10px;
         }
     </style>
 </head>
 <body>
 
-    <div class="logo-container">
-        <img src="1772973315894(1).png" class="main-logo" alt="True Messenger">
-        <div class="line"></div>
+    <div class="container">
+        <img src="1772973315894%281%29.png" class="logo" alt="True Messenger Logo">
+        <div class="loading-line"></div>
+        <p style="margin-top: 10px; color: #666; font-family: sans-serif;">Loading Logo...</p>
     </div>
 
 </body>
