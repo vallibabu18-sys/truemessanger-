@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ట్రూ మెసెంజర్</title>
+    <title>ట్రూ మెసెంజర్ - ఫైనల్</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
@@ -13,87 +13,43 @@
             align-items: center; 
             height: 100vh; 
             margin: 0;
-            font-family: sans-serif;
         }
 
-        .logo-box {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            gap: 15px;
-            padding: 10px;
+        .container {
+            width: 95%;
+            max-width: 450px;
+            text-align: center;
         }
 
-        /* 1. ఎడమ వైపు థిక్ మెటాలిక్ గోల్డ్ బోర్డర్ బాక్స్ */
-        .bird-frame {
-            width: 85px;
-            height: 85px;
-            border: 5px solid #8A6E2F; 
-            border-radius: 18px; 
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            background: #ffffff;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-        }
-
-        /* గోల్డెన్ పక్షి */
-        .gold-bird {
-            font-size: 52px;
-            background: linear-gradient(135deg, #8A6E2F 0%, #C5A059 25%, #FFD700 50%, #C5A059 75%, #8A6E2F 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            line-height: 1;
-        }
-
-        .text-container {
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-            justify-content: center;
-        }
-
-        /* 2. థిక్ డార్క్ గోల్డెన్ తెలుగు అక్షరాలు */
-        .thick-gold-text {
-            font-size: 58px;
-            font-weight: 900;
-            margin: 0;
-            padding: 0;
-            line-height: 0.82; /* అక్షరాలకు అండర్ లైన్ కచ్చితత్వంతో ఆనుకోడానికి */
-            background: linear-gradient(to bottom, #8A6E2F 0%, #C5A059 40%, #FFD700 60%, #AA771C 100%);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -2px;
-        }
-
-        /* 3. థిక్ రెడ్ ట్రాన్స్‌పరెంట్ అండర్ లైన్ */
-        .red-line {
-            height: 8px; 
+        /* మీరు పంపిన అసలైన ఫోటో - ఏ గందరగోళం లేకుండా డైరెక్ట్ లింక్ */
+        .final-logo {
             width: 100%;
-            margin-top: 2px; 
-            background-color: rgba(220, 20, 60, 0.55); 
+            height: auto;
+            display: block;
+            filter: drop-shadow(0 5px 15px rgba(0,0,0,0.1));
+        }
+
+        /* అక్షరాలకు ఆనుకొని పక్కాగా ఉండే థిక్ రెడ్ అండర్ లైన్ */
+        .red-line-fixed {
+            height: 8px;
+            width: 100%;
+            margin-top: -12px; /* ఇమేజ్ లోని అక్షరాలకు సరిగ్గా ఆనుకోవడానికి */
+            background-color: rgba(255, 0, 0, 0.5); /* థిక్ ట్రాన్స్‌పరెంట్ రెడ్ */
             border-radius: 2px;
+            position: relative;
+            z-index: 10;
         }
     </style>
 </head>
 <body>
 
-    <div class="logo-box">
-        <!-- ఫ్రేమ్ లో పక్షి -->
-        <div class="bird-frame">
-            <div class="gold-bird">🕊️</div>
-        </div>
-
-        <!-- అక్షరాలు & ఆనుకొని ఉన్న రెడ్ లైన్ -->
-        <div class="text-container">
-            <h1 class="thick-gold-text">ట్రూ మెసెంజర్</h1>
-            <div class="red-line"></div>
-        </div>
+    <div class="container">
+        <img src="https://raw.githubusercontent.com/vallibabu18-sys/truemessanger-/main/Gemini_Generated_Image_8wjqp48wjqp48wjq%281%29.jpg" 
+             class="final-logo" 
+             alt="True Messenger Logo">
+        
+        <div class="red-line-fixed"></div>
     </div>
 
-    <script>
-        // బ్రౌజర్ ఫోర్స్ రీలోడ్ కోసం చిన్న స్క్రిప్ట్
-        console.log("Refreshed_Version_" + Math.random());
-    </script>
 </body>
 </html>
