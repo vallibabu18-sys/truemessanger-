@@ -3,42 +3,74 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ట్రూ మెసెంజర్</title>
+    <title>ట్రూ మెసెంజర్ - గోల్డెన్ లోగో</title>
     <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
-            background: #ffffff; display: flex; justify-content: center; 
-            align-items: center; height: 100vh; margin: 0; font-family: sans-serif;
-        }
-        .container { text-align: center; width: 90%; }
-        
-        /* గోల్డెన్ పక్షి లాంటి ఎఫెక్ట్ కోసం చిన్న ఐకాన్ */
-        .bird-icon {
-            font-size: 50px; color: #FFD700; margin-bottom: 10px;
-            text-shadow: 0 0 10px rgba(255,215,0,0.5);
+            background-color: #ffffff; 
+            display: flex; 
+            justify-content: center; 
+            align-items: center; 
+            height: 100vh; 
+            font-family: 'Segoe UI', Arial, sans-serif;
         }
 
-        /* మల్టీ కలర్ తెలుగు అక్షరాలు */
-        .logo-text {
-            font-size: 45px; font-weight: bold;
-            background: linear-gradient(45deg, #FF0000, #FF7F00, #FFFF00, #00FF00, #0000FF, #4B0082, #8B00FF);
+        .logo-wrapper {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        /* 1. ఎడమ వైపు గోల్డెన్ పక్షి */
+        .golden-bird {
+            font-size: 70px;
+            color: #FFD700;
+            text-shadow: 0px 0px 20px rgba(255, 215, 0, 0.6);
+            display: flex;
+            align-items: center;
+        }
+
+        /* 2. థిక్ గోల్డెన్ తెలుగు అక్షరాలు */
+        .text-container {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+        }
+
+        .main-text {
+            font-size: 55px;
+            font-weight: 900; /* చాలా థిక్ గా ఉంటుంది */
+            color: #D4AF37;
+            /* గోల్డ్ మెరుపు కోసం గ్రేడియంట్ */
+            background: linear-gradient(to bottom, #FFF5B7 0%, #FFD700 40%, #B8860B 100%);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
-            display: block;
+            line-height: 1.1;
+            letter-spacing: 1px;
         }
 
-        .line {
-            height: 5px; width: 100%; margin-top: 20px;
-            background: linear-gradient(90deg, red, yellow, green, blue);
-            border-radius: 10px;
+        /* 3. థిక్ రెడ్ ట్రాన్స్‌పరెంట్ అండర్ లైన్ */
+        .underline {
+            height: 8px; /* థిక్ లైన్ */
+            width: 100%;
+            margin-top: 2px;
+            /* రెడ్ కలర్ - 0.5 అంటే 50% ట్రాన్స్‌పరెన్సీ */
+            background-color: rgba(255, 0, 0, 0.5); 
+            border-radius: 4px;
+            box-shadow: 0px 2px 4px rgba(255, 0, 0, 0.2);
         }
     </style>
 </head>
 <body>
 
-    <div class="container">
-        <div class="bird-icon">🕊️</div>
-        <span class="logo-text">ట్రూ మెసెంజర్</span>
-        <div class="line"></div>
+    <div class="logo-wrapper">
+        <div class="golden-bird">🕊️</div>
+
+        <div class="text-container">
+            <div class="main-text">ట్రూ మెసెంజర్</div>
+            <div class="underline"></div>
+        </div>
     </div>
 
 </body>
