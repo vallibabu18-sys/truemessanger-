@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ట్రూ మెసెంజర్ లోగో టెస్ట్</title>
+    <title>ట్రూ మెసెంజర్</title>
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; }
         body { 
@@ -22,14 +22,13 @@
         .logo {
             width: 100%;
             height: auto;
-            /* ఇమేజ్ లోడ్ అవ్వకపోతే బోర్డర్ కనిపించడానికి */
-            min-height: 100px;
+            display: block;
         }
-        .loading-line {
+        .rainbow-line {
             height: 5px;
             width: 100%;
             margin-top: 20px;
-            background: linear-gradient(90deg, #ff0000, #ffff00, #00ff00, #00ffff, #0000ff, #ff00ff);
+            background: linear-gradient(90deg, red, orange, yellow, green, blue, indigo, violet);
             border-radius: 10px;
         }
     </style>
@@ -37,9 +36,8 @@
 <body>
 
     <div class="container">
-        <img src="1772973315894%281%29.png" class="logo" alt="True Messenger Logo">
-        <div class="loading-line"></div>
-        <p style="margin-top: 10px; color: #666; font-family: sans-serif;">Loading Logo...</p>
+        <img src="1772973315894%281%29.png" class="logo" alt="True Messenger">
+        <div class="rainbow-line"></div>
     </div>
 
 </body>
